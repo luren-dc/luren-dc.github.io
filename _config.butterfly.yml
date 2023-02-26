@@ -896,6 +896,7 @@ inject:
   bottom:
     # - <script src="xxxx"></script>
     - <script async src="/js/grayscale.js"></script>
+    - <script async src="/js/copyright.js"></script>
     - <script async src="/js/diytitle.js"></script>
 
 # CDN
