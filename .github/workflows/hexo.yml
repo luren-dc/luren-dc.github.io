@@ -22,13 +22,13 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PANDOC_VERSION: 3.1
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           submodules: recursive
-      - name: Setup Pandoc
-        uses: docker://pandoc/core:2.9
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
@@ -45,6 +45,10 @@ jobs:
             ${{ runner.OS }}-npm-cache
       - name: Install Dependencies
         run: npm install
+      - name: Setup Pandoc
+        run:
+          wget -O ${{ runner.temp }}/pandoc.deb https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp  }}/pandoc.deb
       - name: Build with Hexo
         run: npm run build
       - name: Upload artifact
