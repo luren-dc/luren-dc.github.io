@@ -889,7 +889,6 @@ css_prefix: true
 inject:
   head:
     - <link rel="stylesheet" href="/css/transparent.css">
-    - <link rel="stylesheet" href="/css/custom.css">
     - <meta name="apple-mobile-web-app-title" content="Luren's Blog">
     - <meta name="application-name" content="Luren's Blog">
     - <meta name="msapplication-TileColor" content="#da532c">
