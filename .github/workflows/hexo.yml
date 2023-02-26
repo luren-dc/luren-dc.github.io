@@ -45,10 +45,10 @@ jobs:
             ${{ runner.OS }}-npm-cache
       - name: Install Dependencies
         run: npm install
-      - name: Setup Pandoc
-        run:
-          wget -O ${{ runner.temp }}/pandoc.deb https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp  }}/pandoc.deb
+      - name: Download Pandoc
+        run: wget -O ${{ runner.temp }}/pandoc.deb https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb
+      - name: Install Pandoc
+        run: sudo dpkg -i ${{ runner.temp }}/pandoc.deb
       - name: Build with Hexo
         run: npm run build
       - name: Upload artifact
