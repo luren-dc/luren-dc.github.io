@@ -859,13 +859,13 @@ lazyload:
 # PWA
 # See https://github.com/JLHwung/hexo-offline
 # ---------------
-# pwa:
-#   enable: false
-#   manifest: /pwa/manifest.json
-#   apple_touch_icon: /pwa/apple-touch-icon.png
-#   favicon_32_32: /pwa/32.png
-#   favicon_16_16: /pwa/16.png
-#   mask_icon: /pwa/safari-pinned-tab.svg
+pwa:
+  enable: true
+  manifest: /img/pwa/site.webmanifest
+  apple_touch_icon: /img/pwa/apple-touch-icon.png
+  favicon_32_32: /img/pwa/favicon-32x32.png
+  favicon_16_16: /img/pwa/favicon-16x16.png
+  mask_icon: /img/pwa/safari-pinned-tab.svg
 
 # Open graph meta tags
 # https://developers.facebook.com/docs/sharing/webmasters/
@@ -890,6 +890,10 @@ inject:
   head:
     - <link rel="stylesheet" href="/css/transparent.css">
     - <link rel="stylesheet" href="/css/custom.css">
+    - <meta name="apple-mobile-web-app-title" content="Luren's Blog">
+    - <meta name="application-name" content="Luren's Blog">
+    - <meta name="msapplication-TileColor" content="#da532c">
+    - <meta name="theme-color" content="#ffffff">
   bottom:
     # - <script src="xxxx"></script>
     - <script async src="/js/grayscale.js"></script>
