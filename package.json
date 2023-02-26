@@ -25,13 +25,13 @@
     "hexo-generator-tag": "^2.0.0",
     "hexo-hash": "^1.0.3",
     "hexo-minify": "^1.7.3",
+    "hexo-offline": "^2.0.1",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-pandoc": "^0.3.1",
     "hexo-renderer-pug": "^3.0.0",
     "hexo-renderer-stylus": "^2.1.0",
     "hexo-server": "^3.0.0",
     "hexo-theme-butterfly": "^4.6.1",
-    "hexo-wordcount": "^6.0.1",
-    "release-please": "^15.8.0"
+    "hexo-wordcount": "^6.0.1"
   }
 }
