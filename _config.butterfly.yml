@@ -1,12 +1,13 @@
+--- # --------------------------------------
+
 # Main menu navigation (導航目錄)
 # see https://butterfly.js.org/posts/4aa8abbe/#導航菜單
-# --------------------------------------
-
 menu:
-  首页: / || fas fa-home
-  归档: /archives/ || fas fa-archive
-  # Tags: /tags/ || fas fa-tags
-  # Categories: /categories/ || fas fa-folder-open
+  小窝: / || fas fa-home
+  文章||fas fa-book:
+    归档: /archives/ || fas fa-archive
+    标签: /tags/ || fas fa-tags
+    分类: /categories/ || fas fa-folder-open
   # List||fas fa-list:
   #   Music: /music/ || fas fa-music
   #   Movie: /movies/ || fas fa-video
@@ -21,7 +22,7 @@ nav:
 # Code Blocks (代碼相關)
 # --------------------------------------
 
-highlight_theme: mac light #  darker / pale night / light / ocean / mac / mac light / false
+highlight_theme: pale night #  darker / pale night / light / ocean / mac / mac light / false
 highlight_copy: true # copy button
 highlight_lang: true # show the code language
 highlight_shrink: none # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
@@ -81,15 +82,15 @@ katex:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: /img/pwa/favicon.ico
+favicon:
 
 # Avatar (頭像)
 avatar:
-  img: http://q2.qlogo.cn/headimg_dl?dst_uin=3308862290&spec=140
+  img: https://q2.qlogo.cn/headimg_dl?dst_uin=3308862290&spec=140
   effect: false
 
 # Disable all banner image
-disable_top_img: false
+disable_top_img: true
 
 # The banner image of home page
 index_img:
@@ -121,26 +122,24 @@ category_per_img:
 cover:
   # display the cover or not (是否顯示文章封面)
   index_enable: true
-  aside_enable: true
-  archives_enable: true
+  aside_enable: false
+  archives_enable: false
   # the position of cover in home page (封面顯示的位置)
   # left/right/both
   position: both
   # When cover is not set, the default cover is displayed (當沒有設置cover時，默認的封面顯示)
   default_cover:
-    - /img/cover_1.png
-    - /img/cover_2.jpg
 
 # Replace Broken Images (替換無法顯示的圖片)
 error_img:
   flink: /img/friend_404.gif
-  post_page: /img/404.jpg
+  post_page: /img/error/img_post_page.jpg
 
 # A simple 404 page
 error_404:
   enable: true
   subtitle: "你要的页面走丢了"
-  background: https://t.lizina.top/pc # https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png
+  background: /img/error/404_background.png # https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png
 
 post_meta:
   page: # Home Page
@@ -237,12 +236,12 @@ post_pagination: false
 
 # Displays outdated notice for a post (文章過期提醒)
 noticeOutdate:
-  enable: false
+  enable: true
   style: flat # style: simple/flat
-  limit_day: 500 # When will it be shown
+  limit_day: 60 # When will it be shown
   position: top # position: top/bottom
-  message_prev: It has been
-  message_next: days since the last update, the content of the article may be outdated.
+  message_prev: 这篇文章已经发布
+  message_next: 天，内容可能有所过时
 
 # Share System (分享功能)
 # --------------------------------------
@@ -494,23 +493,23 @@ site_verification:
 # Theme color for customize
 # Notice: color value must in double quotes like "#000" or may cause error!
 
-# theme_color:
-#   enable: true
-#   main: "#49B1F5"
-#   paginator: "#00c4b6"
-#   button_hover: "#FF7242"
-#   text_selection: "#00c4b6"
-#   link_color: "#99a9bf"
-#   meta_color: "#858585"
-#   hr_color: "#A4D8FA"
-#   code_foreground: "#F47466"
-#   code_background: "rgba(27, 31, 35, .05)"
-#   toc_color: "#00c4b6"
-#   blockquote_padding_color: "#49b1f5"
-#   blockquote_background_color: "#49b1f5"
-#   scrollbar_color: "#49b1f5"
-#   meta_theme_color_light: "ffffff"
-#   meta_theme_color_dark: "#0d0d0d"
+theme_color:
+  enable: true
+  main: "#6495ed"
+  paginator: "#6495ed"
+  button_hover: "#6495ed"
+  text_selection: "#6495ed"
+  link_color: "#6495ed"
+  meta_color: "#6495ed"
+  hr_color: "#6495ed"
+  code_foreground: "#F47466"
+  code_background: "rgba(27, 31, 35, .05)"
+  toc_color: "#6495ed"
+  blockquote_padding_color: "#6495ed"
+  blockquote_background_color: "#6495ed"
+  scrollbar_color: "#6495ed"
+  meta_theme_color_light: "ffffff"
+  meta_theme_color_dark: "#0d0d0d"
 
 # The top_img settings of home page
 # default: top img - full screen, site info - middle (默認top_img全屏，site_info在中間)
@@ -528,7 +527,7 @@ tag_ui: # 留空或 index
 # Website Background (設置網站背景)
 # can set it to color or image (可設置圖片 或者 顔色)
 # The formal of image: url(http://xxxxxx.com/xxx.jpg)
-background: url(/img/index_img.jpg)
+background: url(/img/background.png)
 
 # Footer Background
 footer_bg: false
@@ -614,8 +613,8 @@ beautify:
 font:
   global-font-size:
   code-font-size:
-  font-family:
-  code-font-family:
+  font-family: AlimamaShuHeiTi-Bold
+  code-font-family: AlibabaPuHuiTi-2-55-Regular
 
 # Font settings for the site title and site subtitle
 # 左上角網站名字 主頁居中網站名字
@@ -631,7 +630,7 @@ hr_icon:
 
 # the subtitle on homepage (主頁subtitle)
 subtitle:
-  enable: true
+  enable: false
   # Typewriter Effect (打字效果)
   effect: true
   # Customize typed.js (配置typed.js)
@@ -666,14 +665,14 @@ aside:
   hide: false
   button: true
   mobile: false # display on mobile
-  position: right # left or right
+  position: left # left or right
   display:
     archive: true
     tag: true
     category: true
   card_author:
     enable: true
-    description:
+    description: 一个普通的高中生
     button:
       enable: false
       icon: fab fa-github
@@ -860,7 +859,7 @@ lazyload:
 # See https://github.com/JLHwung/hexo-offline
 # ---------------
 pwa:
-  enable: true
+  enable: false
   manifest: /img/pwa/site.webmanifest
   apple_touch_icon: /img/pwa/apple-touch-icon.png
   favicon_32_32: /img/pwa/favicon-32x32.png
@@ -889,11 +888,27 @@ css_prefix: true
 inject:
   head:
     - <link rel="stylesheet" href="/css/transparent.css">
-    - <meta name="apple-mobile-web-app-title" content="Luren's Blog">
-    - <meta name="application-name" content="Luren's Blog">
-    - <meta name="msapplication-TileColor" content="#da532c">
-    - <meta name="theme-color" content="#ffffff">
     - <link rel="stylesheet" href="/css/comments.css">
+    - | 
+      <style> @font-face {
+        font-family: AlimamaShuHeiTi-Bold;
+        src:url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlimamaShuHeiTi/AlimamaShuHeiTi-Bold/AlimamaShuHeiTi-Bold.eot) format('embedded-opentype'),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlimamaShuHeiTi/AlimamaShuHeiTi-Bold/AlimamaShuHeiTi-Bold.otf) format('opentype'),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlimamaShuHeiTi/AlimamaShuHeiTi-Bold/AlimamaShuHeiTi-Bold.ttf) format('TrueType'),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlimamaShuHeiTi/AlimamaShuHeiTi-Bold/AlimamaShuHeiTi-Bold.woff) format('woff'),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlimamaShuHeiTi/AlimamaShuHeiTi-Bold/AlimamaShuHeiTi-Bold.woff2) format('woff2');
+      }
+      </style>
+    - |
+      <style> @font-face {
+        font-family: AlibabaPuHuiTi-2-55-Regular;
+        src:url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.eot) format('embedded-opentype'),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.otf) format('opentype'),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.ttf) format('TrueType'),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.woff) format('woff'),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.woff2) format('woff2');
+      }
+      </style>
   bottom:
     # - <script src="xxxx"></script>
     - <script async src="/js/grayscale.js"></script>
