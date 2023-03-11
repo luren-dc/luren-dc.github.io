@@ -72,10 +72,10 @@ index 663fe50..544be5d 100644
 \ No newline at end of file
 diff --git a/node_modules/hexo-theme-butterfly/source/css/_layout/dist/loading.css b/node_modules/hexo-theme-butterfly/source/css/_layout/dist/loading.css
 new file mode 100644
-index 0000000..28a4294
+index 0000000..0d5095d
 --- /dev/null
 +++ b/node_modules/hexo-theme-butterfly/source/css/_layout/dist/loading.css
-@@ -0,0 +1,605 @@
+@@ -0,0 +1,608 @@
 +.loading-bg {
 +  display: flex;
 +  position: fixed;
@@ -90,8 +90,8 @@ index 0000000..28a4294
 +  background-color: #f5f9ff;
 +}
 +#loading-box .loader {
-+  --path: #2f3545;
-+  --dot: #5628ee;
++  --path: #6495ed;
++  --dot: #9d2933;
 +  --duration: 3s;
 +  width: 44px;
 +  height: 44px;
@@ -163,11 +163,14 @@ index 0000000..28a4294
 +#loading-box #loading-percentage {
 +  position: absolute;
 +  top: 55%;
-+  left: 50%;
 +}
 +#loading-box #loading-percentage:before {
 +  content: "「";
 +  margin-right: 10px;
++}
++#loading-box #loading-percentage:after {
++  content: "」";
++  margin-left: 10px;
 +}
 +@-moz-keyframes pathTriangle {
 +  33% {
@@ -682,7 +685,7 @@ index 0000000..28a4294
 +  }
 +}
 diff --git a/node_modules/hexo-theme-butterfly/source/css/_layout/loading.styl b/node_modules/hexo-theme-butterfly/source/css/_layout/loading.styl
-index 9f63e15..91322de 100644
+index 9f63e15..87df944 100644
 --- a/node_modules/hexo-theme-butterfly/source/css/_layout/loading.styl
 +++ b/node_modules/hexo-theme-butterfly/source/css/_layout/loading.styl
 @@ -1,95 +1,180 @@
@@ -748,8 +751,8 @@ index 9f63e15..91322de 100644
 -        height: 100%
 -        background-color: var(--preloader-bg)
 +    .loader
-+      --path: #2F3545
-+      --dot: #5628EE
++      --path: #6495ed
++      --dot: #9D2933
 +      --duration: 3s
 +      width: 44px
 +      height: 44px
@@ -954,4 +957,16 @@ index 9f63e15..91322de 100644
 +    #loading-percentage:after
 +      content: "」";
 +      margin-left: 10px;
+\ No newline at end of file
+diff --git a/node_modules/hexo-theme-butterfly/source/css/_mode/darkmode.styl b/node_modules/hexo-theme-butterfly/source/css/_mode/darkmode.styl
+index 680ad3f..b989c2b 100644
+--- a/node_modules/hexo-theme-butterfly/source/css/_mode/darkmode.styl
++++ b/node_modules/hexo-theme-butterfly/source/css/_mode/darkmode.styl
+@@ -148,3 +148,6 @@ if hexo-config('darkmode.enable') || hexo-config('display_mode') == 'dark'
+     #card-toc
+       +maxWidth900()
+         background: lighten(#121212, 5)
++
++    .loading-bg
++      background-color: #2C3E50
 \ No newline at end of file
