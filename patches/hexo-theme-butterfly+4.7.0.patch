@@ -959,14 +959,14 @@ index 9f63e15..87df944 100644
 +      margin-left: 10px;
 \ No newline at end of file
 diff --git a/node_modules/hexo-theme-butterfly/source/css/_mode/darkmode.styl b/node_modules/hexo-theme-butterfly/source/css/_mode/darkmode.styl
-index 680ad3f..b989c2b 100644
+index 680ad3f..9e43f43 100644
 --- a/node_modules/hexo-theme-butterfly/source/css/_mode/darkmode.styl
 +++ b/node_modules/hexo-theme-butterfly/source/css/_mode/darkmode.styl
 @@ -148,3 +148,6 @@ if hexo-config('darkmode.enable') || hexo-config('display_mode') == 'dark'
      #card-toc
        +maxWidth900()
          background: lighten(#121212, 5)
-+
++    
 +    .loading-bg
 +      background-color: #2C3E50
 \ No newline at end of file
