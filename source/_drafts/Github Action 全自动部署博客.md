@@ -1,10 +1,12 @@
 ---
 abbrlink: ''
-categories: []
+categories:
+- - Hexo
 date: '2023-03-12 14:26:01'
-tags: []
-title: title
-updated: Sun, 12 Mar 2023 06:26:03 GMT
+tags:
+- 教程
+title: Github Action 全自动部署博客
+updated: Sun, 12 Mar 2023 06:41:27 GMT
 ---
 ## Github Action 简介
 
@@ -18,10 +20,10 @@ updated: Sun, 12 Mar 2023 06:26:03 GMT
 
 ## 必备条件
 
-
 **
 
 1. Github 账号
 2. 使用 git 管理博客源代码
 
 **
+
