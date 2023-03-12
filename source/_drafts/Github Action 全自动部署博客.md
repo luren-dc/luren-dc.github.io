@@ -20,14 +20,76 @@ updated: Sun, 12 Mar 2023 07:03:08 GMT
 
 ## 配置
 
-1. 博客源代码文件夹下创建：
-   ```text
-   .github/workflows/hexo.yml
-   ```
-2. 填入以下内容：
-   ```yaml
+1. 博客源代码文件夹下创建：  
+```text
+.github/workflows/hexo.yml
+```
+2. 填入以下内容：  
+```yaml
+name: Deploy Hexo site to Pages
 
-   ```
+on:
+  push:
+    branches: ["master"]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Cache NPM dependencies
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache
+      - name: Install Dependencies
+        run: npm install
+      - name: Build with Hexo
+        run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+
+```
 
 
 ## 说明
