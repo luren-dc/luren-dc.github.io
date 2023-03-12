@@ -533,7 +533,7 @@ background: url(/img/background.png)
 footer_bg: false
 
 # the position of bottom right button/default unit: px (右下角按鈕距離底部的距離/默認單位為px)
-rightside-bottom:
+rightside-bottom: 50px
 
 # Enter transitions (開啓網頁進入效果)
 enter_transitions: true
@@ -665,7 +665,7 @@ aside:
   hide: false
   button: true
   mobile: false # display on mobile
-  position: left # left or right
+  position: right # left or right
   display:
     archive: true
     tag: true
