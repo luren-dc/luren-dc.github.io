@@ -21,16 +21,13 @@ updated: Sun, 12 Mar 2023 07:03:08 GMT
 ## 配置
 
 1. 博客源代码文件夹下创建：
-
-```text
-.github/workflows/hexo.yml
-```
-
+   ```text
+   .github/workflows/hexo.yml
+   ```
 2. 填入以下内容：
+   ```yaml
 
-```yaml
-
-```
+   ```
 
 
 ## 说明
