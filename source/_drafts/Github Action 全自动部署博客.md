@@ -20,8 +20,8 @@ updated: Sun, 12 Mar 2023 06:41:27 GMT
 
 ## 必备条件
 
-**1. Github 账号
-2.  git 管理博客源代码**
+1. **Github 账号**
+2. **git 管理博客源代码**
 
 
 
