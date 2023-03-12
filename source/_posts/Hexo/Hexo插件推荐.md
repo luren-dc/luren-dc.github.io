@@ -20,9 +20,9 @@ $ npm insatll hexo-deployer-git --save
 
 ```yml
 deploy:
-    type: git
-    repo: <仓库链接>
-    branch: <仓库分支>
+  type: git
+  repo: <仓库链接>
+  branch: <仓库分支>
 ```
 
 #### 多个仓库
@@ -63,15 +63,15 @@ $ npm install hexo-abbrlink --save
 ```yml
 # abbrlink config
 abbrlink:
-  alg: crc32      #support crc16(default) and crc32
-  rep: hex        #support dec(default) and hex
-  drafts: false   #(true)Process draft,(false)Do not process draft. false(default) 
+  alg: crc32 #support crc16(default) and crc32
+  rep: hex #support dec(default) and hex
+  drafts: false #(true)Process draft,(false)Do not process draft. false(default)
   # Generate categories from directory-tree
   # depth: the max_depth of directory-tree you want to generate, should > 0
   auto_category:
-     enable: true  #true(default)
-     depth:        #3(default)
-     over_write: false 
+    enable: true #true(default)
+    depth: #3(default)
+    over_write: false
   auto_title: false #enable auto title, it can auto fill the title by path
   auto_date: false #enable auto date, it can auto fill the date by time today
   force: false #enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink. This only updates abbrlink rather than other front variables.
@@ -91,7 +91,7 @@ $ npm install hexo-minify --save
 ## Hexo-minify Default Config Options
 minify:
   preview: false ## 本地预览时是否压缩
-  exclude: ['*.min.*']
+  exclude: ["*.min.*"]
   js:
     enable: true
     ## 详细配置: https://github.com/terser/terser#minify-options
@@ -140,6 +140,7 @@ minify:
 ## 四.[hexo-generator-sitemap](https://github.com/hexojs/hexo-generator-sitemap)自动生成 sitemap
 
 ### 1.安装
+
 ```shell
 $ npm install hexo-generator-sitemap --save
 ```
@@ -148,10 +149,10 @@ $ npm install hexo-generator-sitemap --save
 
 ```yml
 sitemap:
-    path: sitemap.xml
-    rel: true
-    tags: true
-    categories: true
+  path: sitemap.xml
+  rel: true
+  tags: true
+  categories: true
 ```
 
 ## 六.[hexo-generator-readme-file](https://github.com/tcatche/hexo-generator-readme-file)自动生成 readme 文件
@@ -166,7 +167,26 @@ $ npm install hexo-generator-readme-file --save
 
 ```yml
 readmeConfig:
-    postsHeader: "## My posts" # headers, support markdown
-    sort: "desc" # posts display sort: 'desc' or 'acs'. The default option is 'desc'
-    groupType: "month" # 'month' or 'year' or 'none'. The default option is 'month'
+  postsHeader: "## My posts" # headers, support markdown
+  sort: "desc" # posts display sort: 'desc' or 'acs'. The default option is 'desc'
+  groupType: "month" # 'month' or 'year' or 'none'. The default option is 'month'
+```
+
+```
+#[derive(Debug)]
+pub enum State {
+    Start,
+    Transient,
+    Closed,
+}
+
+impl From<&'a str> for State {
+    fn from(s: &'a str) -> Self {
+        match s {
+            "start" => State::Start,
+            "closed" => State::Closed,
+            _ => unreachable!(),
+        }
+    }
+}
 ```

@@ -1,5 +1,5 @@
 diff --git a/node_modules/hexo-theme-butterfly/layout/includes/loading/fullpage-loading.pug b/node_modules/hexo-theme-butterfly/layout/includes/loading/fullpage-loading.pug
-index 75a2041..ab986e5 100644
+index 75a2041..af35047 100644
 --- a/node_modules/hexo-theme-butterfly/layout/includes/loading/fullpage-loading.pug
 +++ b/node_modules/hexo-theme-butterfly/layout/includes/loading/fullpage-loading.pug
 @@ -1,19 +1,44 @@
@@ -52,7 +52,7 @@ index 75a2041..ab986e5 100644
 -    },
 +      setTimeout(() => {
 +        document.getElementById('loading-box').classList.add("loaded");
-+      },500);
++      },1300);
 +   },
      initLoading: () => {
        document.body.style.overflow = '';
@@ -685,10 +685,10 @@ index 0000000..0d5095d
 +  }
 +}
 diff --git a/node_modules/hexo-theme-butterfly/source/css/_layout/loading.styl b/node_modules/hexo-theme-butterfly/source/css/_layout/loading.styl
-index 9f63e15..87df944 100644
+index 9f63e15..40ef489 100644
 --- a/node_modules/hexo-theme-butterfly/source/css/_layout/loading.styl
 +++ b/node_modules/hexo-theme-butterfly/source/css/_layout/loading.styl
-@@ -1,95 +1,180 @@
+@@ -1,95 +1,193 @@
 -if hexo-config('preloader.enable') && hexo-config('preloader.source') == 1
 +if hexo-config('preloader.enable') && hexo-config('preloader.source') != 2
    .loading-bg
@@ -704,8 +704,8 @@ index 9f63e15..87df944 100644
 +    justify-content: center
 +    align-items: center
 +    opacity: 1
++    backdrop-filter: blur(10px)
 +    transition: 0.3s
-+    background-color: #F5F9FF
  
    #loading-box
 -    .loading-left-bg
@@ -753,7 +753,7 @@ index 9f63e15..87df944 100644
 +    .loader
 +      --path: #6495ed
 +      --dot: #9D2933
-+      --duration: 3s
++      --duration: 4s
 +      width: 44px
 +      height: 44px
 +      position: relative
@@ -949,6 +949,10 @@ index 9f63e15..87df944 100644
 +    #loading-percentage
 +      position: absolute
 +      top: 55%
++      animation-duration: .3s
++      animation-iteration-count: infinite
++      animation-direction: alternate
++      animation-name: loadingAction
 +
 +    #loading-percentage:before
 +      content: "「";
@@ -957,15 +961,62 @@ index 9f63e15..87df944 100644
 +    #loading-percentage:after
 +      content: "」";
 +      margin-left: 10px;
-\ No newline at end of file
++
++    @keyframes loadingAction
++      0% {
++        opacity: 1;
++      }
++
++      100% {
++        opacity: .4;
++      }
+diff --git a/node_modules/hexo-theme-butterfly/source/css/_layout/post.styl b/node_modules/hexo-theme-butterfly/source/css/_layout/post.styl
+index 4915ee6..152596d 100644
+--- a/node_modules/hexo-theme-butterfly/source/css/_layout/post.styl
++++ b/node_modules/hexo-theme-butterfly/source/css/_layout/post.styl
+@@ -24,8 +24,34 @@ beautify()
+       content: $title-prefix-icon
+       line-height: 1
+       transition: all .2s ease-out
++      animation: rotate 2s linear infinite
+       @extend .fontawesomeIcon
+ 
++    @keyframes rotate
++      0% {
++        transform: rotate(0deg);
++      }
++
++      20% {
++        transform: rotate(72deg);
++      }
++
++      40% {
++        transform: rotate(144deg);
++      }
++
++      60% {
++        transform: rotate(216deg);
++      }
++
++      80% {
++        transform: rotate(288deg);
++      }
++
++      100% {
++        transform: rotate(360deg);
++      }
++
+     &:hover
+       &:before
+         color: $light-blue
 diff --git a/node_modules/hexo-theme-butterfly/source/css/_mode/darkmode.styl b/node_modules/hexo-theme-butterfly/source/css/_mode/darkmode.styl
-index 680ad3f..754c6ae 100644
+index 680ad3f..fa92ddc 100644
 --- a/node_modules/hexo-theme-butterfly/source/css/_mode/darkmode.styl
 +++ b/node_modules/hexo-theme-butterfly/source/css/_mode/darkmode.styl
 @@ -39,6 +39,9 @@ if hexo-config('darkmode.enable') || hexo-config('display_mode') == 'dark'
      --scrollbar-color: lighten(#121212, 5)
      --timeline-bg: lighten(#121212, 5)
-     
+ 
 +    .loading-bg
 +      background-color: #2C3E50
 +
